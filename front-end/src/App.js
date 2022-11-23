@@ -63,7 +63,7 @@ class App extends Component {
         <Routes>
         <Route
           exact path="/"
-          element={<Home/>} />
+          element={this.state.loggedIn && <Home/>} />
         <Route
           path="/login"
           element={<LoginForm

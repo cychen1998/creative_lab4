@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../database/models/user')
+const Recipe = require('../database/models/recipes')
 const passport = require('../passport')
 
 router.post('/signup', (req, res) => {
@@ -67,5 +68,42 @@ router.post('/logout', (req, res) => {
         res.send({ msg: 'no user to log out' })
     }
 })
+
+router.get('/recipes', async (req, res) => {
+  try {
+    let recipes = await Recipe.find();
+    res.send({recipes: recipes});
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+router.post('/recipes', async (req, res) => {
+    const recipe = new Recipe({
+    name: req.body.name,
+    quantity: parseInt(req.body.quantity),
+    ingredients: req.body.ingredients
+  });
+  try {
+    await recipe.save();
+    res.send({recipe:recipe});
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+router.delete('/recipes/:id', async (req, res) => {
+  try {
+    await Recipe.deleteOne({
+      _id: req.params.id
+    });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
 
 module.exports = router

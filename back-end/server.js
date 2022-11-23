@@ -9,7 +9,7 @@ const passport = require('./passport');
 const user = require('./routes/user')
 
 const app = express()
-const PORT = 3000
+const PORT = 3002
 
 const clientP = mongoose.connect(
   'mongodb://localhost:27017/simple-mern-passport',
