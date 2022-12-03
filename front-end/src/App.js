@@ -76,7 +76,11 @@ class App extends Component {
         />
         </Routes>
         
-        
+        <div class= 'footer'>
+          <a href="https://github.com/cychen1998/creative_lab4">Link to Github Repository</a>
+          <br/>
+          <h6>Site by Juliana Yue and Claire Chen</h6>
+        </div>
 
       </div>
     );
