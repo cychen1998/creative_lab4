@@ -4,8 +4,10 @@ mongoose.promise = Promise
 
 const recipeSchema = new Schema({
   name: String,
+  author: String,
   quantity: Number,
-  ingredients: String,
+  ingredient: String,
+  instruction: String,
 });
 
 recipeSchema.virtual('id')

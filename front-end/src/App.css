@@ -8,9 +8,9 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  background-color:#7481aa;
+  height: 60px;
+  padding: 5px;
   color: white;
 }
 
@@ -44,3 +44,55 @@
   to { transform: rotate(360deg); }
 }
 
+.recipe {
+    border-style: solid;
+    margin: auto;
+    width: 60%;
+    border-color: #adcfe0;
+    background-color: #adcfe0;
+    border-radius: 10px;  
+    margin-bottom: 19px;
+    padding: 10px;
+}
+
+.name {
+  padding:5px;
+}
+.Name {
+  margin:10px;
+}
+
+.by{
+  padding:45px;
+}
+.By {
+  margin:10px;
+}
+.quantity{
+  padding:8px;
+}
+.Quantity {
+  margin:10px;
+}
+.ingredient{
+  padding: 5px;
+}
+.Ingredients{
+  margin: 10px;
+}
+.instruction{
+  padding: 5px;
+}
+.Instructions {
+  margin:10px;
+}
+.description {
+  white-space: pre-wrap;
+}  
+
+.lol{
+  text-align: left;
+  margin:auto;
+  width: 80%;
+  overflow:hidden;
+}

@@ -82,8 +82,10 @@ router.get('/recipes', async (req, res) => {
 router.post('/recipes', async (req, res) => {
     const recipe = new Recipe({
     name: req.body.name,
+    author: req.body.author,
     quantity: parseInt(req.body.quantity),
-    ingredients: req.body.ingredients
+    ingredient: req.body.ingredient,
+    instruction: req.body.instruction
   });
   try {
     await recipe.save();
