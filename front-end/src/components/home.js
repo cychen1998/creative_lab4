@@ -57,6 +57,36 @@ function Home() {
     await deleteOneRecipe(recipe);
     fetchRecipes();
   }
+  
+  const decrease = async(item) => {
+    try {
+      let temp = parseInt(item.quantity - 1);
+      await axios.put("/user/recipes/" + item.id, {temp});
+    } catch(error) {
+      setError("error decreasing quantity" + error);
+    }
+  }
+  
+  const increase = async(item) => {
+    try {
+      let temp = parseInt(item.quantity + 1);
+      await axios.put("/user/recipes/" + item.id, {temp});
+    } catch(error) {
+      setError("error increasing quantity" + error);
+    }
+  }
+  
+  const decreaseQuantity = async(item) => {
+    await decrease(item);
+    fetchRecipes();
+    setQuantity(item.quantity);
+  }
+  
+  const increaseQuantity = async(item) => {
+    await increase(item);
+    fetchRecipes();
+    setQuantity(item.quantity);
+  }
 
   //const loggedIn = this.props.loggedIn;
   // render results
@@ -101,6 +131,8 @@ function Home() {
                   <div class="lol">
                   <h5> Ingredients </h5>
                   <p> for {recipe.quantity} servings </p>
+                  <button onClick={e => decreaseQuantity(recipe)}>-</button>
+                  <button onClick={e => increaseQuantity(recipe)}>+</button>
                   <p className = "description" >{recipe.ingredient}</p>
                   
                   <h5> Instructions </h5>

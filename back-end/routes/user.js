@@ -108,4 +108,17 @@ router.delete('/recipes/:id', async (req, res) => {
   }
 });
 
+router.put('/recipes/:id', async (req, res) => {
+    let quantity = req.body.temp
+    try {
+        let recipe = await Recipe.updateOne( { 
+            _id: req.params.id
+        }, {$set: {quantity}});
+        res.send({recipe:recipe});
+    } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
 module.exports = router
